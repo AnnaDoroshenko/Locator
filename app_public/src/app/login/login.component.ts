@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
         .then(() => {
             this.router.navigateByUrl(this.historyService.getLastNonLoginUrl());
         })
-        .catch((message) => this.formError = message);
+        .catch(() => {
+            const message = "Invalid email address or password";
+            this.formError = message
+        });
   }
 }
